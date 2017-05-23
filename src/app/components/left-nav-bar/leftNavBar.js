@@ -9,11 +9,23 @@ let leftNavBar = () => {
     }
 };
 
+const getRowsQuantity = (a, b) => {
+    if (a.length > b.length) {
+        return a.length;
+    }
+};
+
 class leftNavBarCtrl {
     constructor() {
         this.people = people.People;
-        this.searchText = '';
-        console.log(people);
+        this.displayContent = false;
+        this.person = {};
+        this.tableRows;
+    }
+
+    clickHandler(person) {
+        this.displayContent = true;
+        this.person = person;
     }
 }
 

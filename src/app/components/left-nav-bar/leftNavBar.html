@@ -1,15 +1,31 @@
 <div class="left-nav-bar_component">
-    <div class="search input-group">
-        <input type="text" class="form-control" placeholder="Search" ng-model="searchText">
-        <span class="input-group-addon">
-            <span class="glyphicon glyphicon-search" />
-        </span>
-    </div>
-    <div class="people-cards">
-        <ul class="nav nav-pills nav-stacked">
-            <li class="people" ng-repeat="person in leftNavBar.people | filter:searchText">
-                <span>{{person.name}}</span>
-            </li>
-        </ul>
-    </div>
+        <div class="search input-group">
+                <input type="text" class="form-control" placeholder="Search" ng-model="searchText">
+                <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-search" />
+                </span>
+        </div>
+        <div class="people-cards">
+                <ul class="nav nav-pills nav-stacked">
+                        <li class="people" ng-repeat="person in leftNavBar.people | filter:searchText">
+                                <span ng-click="leftNavBar.clickHandler(person)">{{person.name}}</span>
+                        </li>
+                </ul>
+        </div>
+        <div class=people-content ng-if="leftNavBar.displayContent">
+                <img src="{{leftNavBar.person.img}}"/>
+                <button class="btn btn-default navbar-btn">SEND MESSAGE!</button>
+                <span class="rating">Rating: {{leftNavBar.person.rating}}</span>
+                <span class="description">{{leftNavBar.person.Description}}</span>
+                <table class="table">
+                    <tr>
+                        <th>Likes</th>
+                        <th>Dislikes</th>
+                    </tr>
+                    <tr ng-repeat="(key, value) in leftNavBar.person.Likes">
+                        <td>{{value}}</td>
+                        <td>{{leftNavBar.person.Dislikes[key]}}</td>
+                    </tr>
+                </table>
+        </div>
 </div>

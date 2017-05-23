@@ -1,4 +1,5 @@
 import angular from 'angular';
+import people from '../../model/people.json';
 
 let leftNavBar = () => {
     return {
@@ -10,7 +11,9 @@ let leftNavBar = () => {
 
 class leftNavBarCtrl {
     constructor() {
-        this.message = 'https://github.com/preboot/angular-webpack';
+        this.people = people.People;
+        this.searchText = '';
+        console.log(people);
     }
 }
 

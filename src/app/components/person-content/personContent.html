@@ -1,0 +1,27 @@
+<div class="people-profile">
+    <img class="people-img" src="{{personContent.person.img}}"/>
+    <div class="people-rating">
+        <button class="send btn btn-default navbar-btn">SEND MESSAGE!</button>
+        <ul class="people-rating">
+            <li class="people-rating-heart" ng-repeat="item in personContent.person.filledHearts">
+                <span class="glyphicon glyphicon-heart"/>
+            </li>
+            <li class="people-rating-heart" ng-repeat="item in personContent.person.emptyHearts">
+                <span class="glyphicon glyphicon-heart-empty"/>
+            </li>
+        </ul>
+    </div>
+</div>
+<blockquote class="description">
+    <p>{{personContent.person.Description}}</p>
+</blockquote>
+<table class="table">
+    <tr>
+        <th>Likes</th>
+        <th>Dislikes</th>
+    </tr>
+    <tr ng-repeat="(key, value) in personContent.person.Likes">
+        <td>{{value}}</td>
+        <td>{{personContent.person.Dislikes[key]}}</td>
+    </tr>
+</table>

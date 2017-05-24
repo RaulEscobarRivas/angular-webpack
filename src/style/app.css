@@ -112,7 +112,7 @@ tbody {
 }
 
 tr:nth-child(even) {
-    background: #F5F5DC;
+    background: #E6E6FA;
 }
 
 th:first-child {

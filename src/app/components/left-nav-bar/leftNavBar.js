@@ -1,5 +1,4 @@
 import angular from 'angular';
-import people from '../../model/people.json';
 
 const generateArrayWithRandomValuesBySize = items => {
     let resultArray = [];
@@ -15,29 +14,38 @@ let leftNavBar = () => {
     return {
         template: require('./leftNavBar.html'),
         controller: 'leftNavBarCtrl',
-        controllerAs: 'leftNavBar'
+        controllerAs: 'leftNavBar',
+        scope: {
+            people: '='
+        },
+        bindToController: true
     }
 };
 
 class leftNavBarCtrl {
-    constructor() {
-        this.people = people.People;
+    constructor($scope) {
         this.displayContent = false;
         this.person = {};
         this.tableRows;
     }
 
+    $onInit() {
+        this.calculateRating(this.people);
+    }
+
     clickHandler(person) {
         this.displayContent = true;
         this.person = person;
-        this.calculateRating(person.rating);
     }
 
-    calculateRating(rating) {
+    calculateRating(people) {
         const maxRating = 5;
-
-        this.filledHearts = generateArrayWithRandomValuesBySize(rating);
-        this.emptyHearts = generateArrayWithRandomValuesBySize(maxRating - rating);
+        for(let person in people) {
+            const filledHearts = generateArrayWithRandomValuesBySize(people[person].rating);
+            const emptyHearts = generateArrayWithRandomValuesBySize(maxRating - people[person].rating);
+            people[person].filledHearts = filledHearts;
+            people[person].emptyHearts = emptyHearts;
+        }
     }
 }
 

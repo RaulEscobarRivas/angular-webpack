@@ -20,7 +20,7 @@ div.people-content {
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 4.9em 1em;
+    padding: 4.9em 2em 4.9em 1em;
 }
 
 div.people-profile {
@@ -105,10 +105,20 @@ tbody {
     border: 1px solid #ddd;
 }
 
-tr:nth-child(odd) {
+tr:nth-child(even) {
     background: #F5F5DC;
 }
 
-td {
-    width: 50%;
+th:first-child {
+    width: 60%;
+    border-right: 1px solid #ddd;
+}
+
+td:first-child {
+    width: 60%;
+    border-right: 1px solid #ddd;
+}
+
+td:last-child {
+    width: 40%;
 }

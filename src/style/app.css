@@ -32,6 +32,11 @@ div.people-rating {
     margin-left: 18%;
 }
 
+div.session {
+    position: fixed;
+    right: 1em;
+}
+
 li.people {
     display: flex;
     justify-content: flex-start;

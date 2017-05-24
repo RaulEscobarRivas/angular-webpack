@@ -36,8 +36,8 @@ class leftNavBarCtrl {
     calculateRating(rating) {
         const maxRating = 5;
 
-        this.filledHearts = this.generateArrayWithRandomValuesBySize(rating);
-        this.emptyHearts = this.generateArrayWithRandomValuesBySize(maxRating - rating);
+        this.filledHearts = generateArrayWithRandomValuesBySize(rating);
+        this.emptyHearts = generateArrayWithRandomValuesBySize(maxRating - rating);
     }
 }
 

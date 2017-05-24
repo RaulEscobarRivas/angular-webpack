@@ -1,4 +1,5 @@
 <div class="left-nav-bar_component">
+    <div class="left-menu">
         <div class="search">
             <input type="text" class="search form-control" placeholder="Search" ng-model="searchText">
             <span class="glyphicon glyphicon-search" />
@@ -14,30 +15,34 @@
                 </li>
             </ul>
         </div>
-        <div class=people-content ng-if="leftNavBar.displayContent">
-            <ul>
-                <li ng-repeat="item in leftNavBar.filledHearts">
-                    <span class="glyphicon glyphicon-heart"/>
-                </li>
-                <li ng-repeat="item in leftNavBar.emptyHearts">
-                    <span class="glyphicon glyphicon-heart-empty"/>
-                </li>
-            </ul>
-            <img src="{{leftNavBar.person.img}}"/>
-            <button class="btn btn-default navbar-btn">SEND MESSAGE!</button>
-            <span class="rating">Rating: {{leftNavBar.person.rating}}</span>
-            <blockquote class="description">
-                <p>{{leftNavBar.person.Description}}</p>
-            </blockquote>
-            <table class="table">
-                <tr>
-                    <th>Likes</th>
-                    <th>Dislikes</th>
-                </tr>
-                <tr ng-repeat="(key, value) in leftNavBar.person.Likes">
-                    <td>{{value}}</td>
-                    <td>{{leftNavBar.person.Dislikes[key]}}</td>
-                </tr>
-            </table>
+    </div>
+    <div class=people-content ng-show="leftNavBar.displayContent">
+        <div class="people-profile">
+            <img class="people-img" src="{{leftNavBar.person.img}}"/>
+            <div class="people-rating">
+                <button class="send btn btn-default navbar-btn">SEND MESSAGE!</button>
+                <ul class="people-rating">
+                    <li class="people-rating-heart" ng-repeat="item in leftNavBar.filledHearts">
+                        <span class="glyphicon glyphicon-heart"/>
+                    </li>
+                    <li class="people-rating-heart" ng-repeat="item in leftNavBar.emptyHearts">
+                        <span class="glyphicon glyphicon-heart-empty"/>
+                    </li>
+                </ul>
+            </div>
         </div>
+        <blockquote class="description">
+            <p>{{leftNavBar.person.Description}}</p>
+        </blockquote>
+        <table class="table">
+            <tr>
+                <th>Likes</th>
+                <th>Dislikes</th>
+            </tr>
+            <tr ng-repeat="(key, value) in leftNavBar.person.Likes">
+                <td>{{value}}</td>
+                <td>{{leftNavBar.person.Dislikes[key]}}</td>
+            </tr>
+        </table>
+    </div>
 </div>

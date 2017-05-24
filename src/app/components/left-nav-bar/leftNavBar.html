@@ -13,19 +13,27 @@
                 </ul>
         </div>
         <div class=people-content ng-if="leftNavBar.displayContent">
-                <img src="{{leftNavBar.person.img}}"/>
-                <button class="btn btn-default navbar-btn">SEND MESSAGE!</button>
-                <span class="rating">Rating: {{leftNavBar.person.rating}}</span>
-                <span class="description">{{leftNavBar.person.Description}}</span>
-                <table class="table">
-                    <tr>
-                        <th>Likes</th>
-                        <th>Dislikes</th>
-                    </tr>
-                    <tr ng-repeat="(key, value) in leftNavBar.person.Likes">
-                        <td>{{value}}</td>
-                        <td>{{leftNavBar.person.Dislikes[key]}}</td>
-                    </tr>
-                </table>
+            <ul>
+                <li ng-repeat="item in leftNavBar.filledHearts">
+                    <span>FILLED</span>
+                </li>
+                <li ng-repeat="item in leftNavBar.emptyHearts">
+                    <span>EMPTY</span>
+                </li>
+            </ul>
+            <img src="{{leftNavBar.person.img}}"/>
+            <button class="btn btn-default navbar-btn">SEND MESSAGE!</button>
+            <span class="rating">Rating: {{leftNavBar.person.rating}}</span>
+            <span class="description">{{leftNavBar.person.Description}}</span>
+            <table class="table">
+                <tr>
+                    <th>Likes</th>
+                    <th>Dislikes</th>
+                </tr>
+                <tr ng-repeat="(key, value) in leftNavBar.person.Likes">
+                    <td>{{value}}</td>
+                    <td>{{leftNavBar.person.Dislikes[key]}}</td>
+                </tr>
+            </table>
         </div>
 </div>

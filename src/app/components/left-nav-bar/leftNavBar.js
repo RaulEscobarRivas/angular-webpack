@@ -9,12 +9,6 @@ let leftNavBar = () => {
     }
 };
 
-const getRowsQuantity = (a, b) => {
-    if (a.length > b.length) {
-        return a.length;
-    }
-};
-
 class leftNavBarCtrl {
     constructor() {
         this.people = people.People;
@@ -26,6 +20,24 @@ class leftNavBarCtrl {
     clickHandler(person) {
         this.displayContent = true;
         this.person = person;
+        this.calculateRating(person.rating);
+    }
+
+    calculateRating(rating) {
+        const maxRating = 5;
+
+        this.filledHearts = this.generateArrayWithRandomValuesBySize(rating);
+        this.emptyHearts = this.generateArrayWithRandomValuesBySize(maxRating - rating);
+    }
+
+    generateArrayWithRandomValuesBySize(items) {
+        let resultArray = [];
+
+        for(let i = 0; i < items; i++) {
+            resultArray.push(Math.random());
+        }
+
+        return resultArray;
     }
 }
 

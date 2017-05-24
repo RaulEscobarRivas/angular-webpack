@@ -2,23 +2,23 @@
         <div class="search input-group">
                 <input type="text" class="form-control" placeholder="Search" ng-model="searchText">
                 <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-search" />
+                    <span class="glyphicon glyphicon-search" />
                 </span>
         </div>
         <div class="people-cards">
                 <ul class="nav nav-pills nav-stacked">
-                        <li class="people" ng-repeat="person in leftNavBar.people | filter:searchText">
-                                <span ng-click="leftNavBar.clickHandler(person)">{{person.name}}</span>
-                        </li>
+                    <li class="people" ng-repeat="person in leftNavBar.people | filter:searchText">
+                            <span ng-click="leftNavBar.clickHandler(person)">{{person.name}}</span>
+                    </li>
                 </ul>
         </div>
         <div class=people-content ng-if="leftNavBar.displayContent">
             <ul>
                 <li ng-repeat="item in leftNavBar.filledHearts">
-                    <span>FILLED</span>
+                    <span class="glyphicon glyphicon-heart"/>
                 </li>
                 <li ng-repeat="item in leftNavBar.emptyHearts">
-                    <span>EMPTY</span>
+                    <span class="glyphicon glyphicon-heart-empty"/>
                 </li>
             </ul>
             <img src="{{leftNavBar.person.img}}"/>

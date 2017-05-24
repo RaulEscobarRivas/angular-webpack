@@ -1,6 +1,16 @@
 import angular from 'angular';
 import people from '../../model/people.json';
 
+const generateArrayWithRandomValuesBySize = items => {
+    let resultArray = [];
+
+    for(let i = 0; i < items; i++) {
+        resultArray.push(Math.random());
+    }
+
+    return resultArray;
+};
+
 let leftNavBar = () => {
     return {
         template: require('./leftNavBar.html'),
@@ -28,16 +38,6 @@ class leftNavBarCtrl {
 
         this.filledHearts = this.generateArrayWithRandomValuesBySize(rating);
         this.emptyHearts = this.generateArrayWithRandomValuesBySize(maxRating - rating);
-    }
-
-    generateArrayWithRandomValuesBySize(items) {
-        let resultArray = [];
-
-        for(let i = 0; i < items; i++) {
-            resultArray.push(Math.random());
-        }
-
-        return resultArray;
     }
 }
 

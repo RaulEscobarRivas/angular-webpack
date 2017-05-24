@@ -1,16 +1,18 @@
 <div class="left-nav-bar_component">
-        <div class="search input-group">
-                <input type="text" class="form-control" placeholder="Search" ng-model="searchText">
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-search" />
-                </span>
+        <div class="search">
+            <input type="text" class="search form-control" placeholder="Search" ng-model="searchText">
+            <span class="glyphicon glyphicon-search" />
+            <span class="glyphicon glyphicon-remove" ng-click="searchText = ''"/>
         </div>
         <div class="people-cards">
-                <ul class="nav nav-pills nav-stacked">
-                    <li class="people" ng-repeat="person in leftNavBar.people | filter:searchText">
-                            <span ng-click="leftNavBar.clickHandler(person)">{{person.name}}</span>
-                    </li>
-                </ul>
+            <ul class="nav nav-pills nav-stacked">
+                <li class="people" ng-repeat="person in leftNavBar.people | filter:searchText">
+                    <span class="cards btn btn-default navbar-btn" ng-click="leftNavBar.clickHandler(person)">
+                        {{person.name}}
+                        <span class="glyphicon glyphicon-play" />
+                    </span>
+                </li>
+            </ul>
         </div>
         <div class=people-content ng-if="leftNavBar.displayContent">
             <ul>
@@ -24,7 +26,9 @@
             <img src="{{leftNavBar.person.img}}"/>
             <button class="btn btn-default navbar-btn">SEND MESSAGE!</button>
             <span class="rating">Rating: {{leftNavBar.person.rating}}</span>
-            <span class="description">{{leftNavBar.person.Description}}</span>
+            <blockquote class="description">
+                <p>{{leftNavBar.person.Description}}</p>
+            </blockquote>
             <table class="table">
                 <tr>
                     <th>Likes</th>

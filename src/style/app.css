@@ -1,4 +1,50 @@
 /* styles in src/style directory are applied to the whole page */
-.search {
-    width: 25%;
+div.left-nav-bar_component {
+    margin-left: 1em;
+}
+
+div.search {
+    margin-top: 10px;
+}
+
+input.search {
+    border-radius: 15px;
+    width: 21em;
+    font-size: 11px;
+    padding-left: 5em;
+}
+
+li.people {
+    display: flex;
+    justify-content: flex-start;
+}
+
+span.cards {
+    margin: 0;
+    padding: 0;
+    width: 15em;
+    height: 5em;
+    border-radius: 0;
+    line-height: 5em;
+    padding-left: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+span.glyphicon-play {
+    line-height: 5em;
+}
+
+span.glyphicon-search {
+    top: -2.5em;
+    left: 1em;
+    font-size: 11px;
+}
+
+span.glyphicon-remove {
+    left: 15.7em;
+}
+
+.nav-stacked>li+li {
+    margin-top: 0;
 }

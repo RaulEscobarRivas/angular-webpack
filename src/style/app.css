@@ -1,7 +1,13 @@
 /* styles in src/style directory are applied to the whole page */
 div.left-nav-bar_component {
+    position: fixed;
+    width: 100%;
     margin-left: 1em;
     display: flex;
+}
+
+div.left-menu {
+    width: 19%;
 }
 
 div.search {
